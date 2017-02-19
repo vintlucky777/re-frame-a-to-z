@@ -4,7 +4,8 @@
                  [reagent "0.6.0"]
                  [re-frame "0.9.1"]]
 
-  :plugins [[lein-cljsbuild "1.1.4"]]
+  :plugins [[lein-cljsbuild "1.1.4"]
+            [lein-less "1.7.5"]]
 
   :min-lein-version "2.5.3"
 
@@ -14,6 +15,8 @@
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
+  :less {:source-paths ["src/less/"]
+         :target-path "resources/public/styles/"}
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.8.2"]]
