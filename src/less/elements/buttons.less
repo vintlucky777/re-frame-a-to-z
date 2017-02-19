@@ -1,0 +1,41 @@
+@import '../colors.less';
+
+// --> Buttons
+@cl-btn-primary: @cl-primary;
+@cl-btn-primary-hover: darken(@cl-btn-primary, 5%);
+@cl-btn-primary-active: darken(@cl-btn-primary, 10%);
+@cl-btn-primary-disabled: lighten(@cl-btn-primary, 15%);
+
+@cl-btn-success: @cl-success;
+@cl-btn-success-hover: darken(@cl-btn-success, 5%);
+@cl-btn-success-active: darken(@cl-btn-success, 10%);
+@cl-btn-success-disabled: lighten(@cl-btn-success, 15%);
+
+@cl-btn-danger: @cl-danger;
+@cl-btn-danger-hover: darken(@cl-btn-danger, 5%);
+@cl-btn-danger-active: darken(@cl-btn-danger, 10%);
+@cl-btn-danger-disabled: lighten(@cl-btn-danger, 15%);
+
+button {
+  background: @cl-btn-primary;
+  padding: 6px 10px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+
+  &:hover {
+    background-color: @cl-btn-primary-hover;
+  }
+
+  &:focus, &:active {
+    background-color: @cl-btn-primary-active;
+  }
+
+  &[disabled] {
+    background-color: @cl-btn-primary-disabled;
+    cursor: auto;
+  }
+}

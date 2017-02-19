@@ -1,0 +1,36 @@
+@import "./colors.less";
+@import "./shadows.less";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 400;
+  font-family: "Merryweather", "Helvetica", sans-serif;
+  font-size: 14px;
+  background-color: @cl-bg;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+a {
+  text-decoration: none;
+  color: @cl-link;
+}
+
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 90px 30px 30px;
+}
+
+.anim-spin {
+  animation: SPIN 1s infinite linear;
+}
+
+@keyframes SPIN {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

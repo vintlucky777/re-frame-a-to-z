@@ -1,8 +1,8 @@
 (ns re-frame-a-to-z.events
-    (:require [re-frame.core :as re-frame]
+    (:require [re-frame.core :as rf]
               [re-frame-a-to-z.db :as db]))
 
-(re-frame/reg-event-db
+(rf/reg-event-db
  :initialize-db
  (fn  [_ _]
    db/default-db))

@@ -7,10 +7,11 @@ This presentation gives a general understanding of what [re-frame](https://githu
 ## Run presentation:
 
 ```
-lein figwheel
+lein cooper
 ```
+This command will run `lein less auto` and `lein figwheel dev` in parallel.
 
-Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
+Wait a bit, then browse to [http://localhost:3000](http://localhost:3000).
 
 ## Production Build
 

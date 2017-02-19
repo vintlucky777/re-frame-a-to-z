@@ -4,7 +4,8 @@
                  [reagent "0.6.0"]
                  [re-frame "0.9.1"]]
 
-  :plugins [[lein-cljsbuild "1.1.4"]
+  :plugins [[lein-cooper "1.2.2"]
+            [lein-cljsbuild "1.1.4"]
             [lein-less "1.7.5"]]
 
   :min-lein-version "2.5.3"
@@ -13,10 +14,17 @@
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
-  :figwheel {:css-dirs ["resources/public/css"]}
+  :cooper {"less" ["lein" "less" "auto"]
+           "web"  ["lein" "figwheel" "dev"]}
 
   :less {:source-paths ["src/less/"]
          :target-path "resources/public/styles/"}
+
+  :figwheel {
+    :css-dirs ["resources/public/styles"]
+    :server-port 3000          ;; default is 3449
+  }
+
   :profiles
   {:dev
    {:dependencies [[binaryage/devtools "0.8.2"]]

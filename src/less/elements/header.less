@@ -1,0 +1,32 @@
+@import '../shadows.less';
+
+.header {
+  .shadow-1;
+
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  font-size: 18px;
+  flex-grow: 1;
+}
+
+.header-user {
+  flex-grow: 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.header-user-signout {
+  cursor: pointer;
+}

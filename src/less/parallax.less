@@ -1,0 +1,22 @@
+.prlx {
+  perspective: 1px;
+  perspective-origin: center;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+[class*=prlx-layer] {
+  transform-style: preserve-3d;
+}
+.prlx-layer-fg {
+  transform: translateZ(0.5px) scale(0.5);
+}
+.prlx-layer-base {
+  transform: translateZ(0);
+}
+.prlx-layer-bg {
+  transform: translateZ(-1px) scale(2);
+}
+.prlx-layer-deep-bg {
+  transform: translateZ(-2px) scale(3);
+}

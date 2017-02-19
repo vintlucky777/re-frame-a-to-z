@@ -1,7 +1,9 @@
 (ns re-frame-a-to-z.views
-    (:require [re-frame.core :as re-frame]))
+    (:require [re-frame.core :as rf]))
 
 (defn main-panel []
-  (let [name (re-frame/subscribe [:name])]
+  (let [name (rf/subscribe [:name])]
     (fn []
-      [:div "Hello from " @name])))
+      [:div
+        [:div "Hello from " @name]
+        [:button.c1 "Click me!"]])))
