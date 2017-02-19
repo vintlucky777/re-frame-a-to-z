@@ -1,7 +1,13 @@
 @import '../colors.less';
+@import '../margins.less';
 
 // --> Buttons
+@cl-btn-shadow: rgba(0,0,0,0.06);
+@cl-btn-active: rgba(0,0,0,0.05);
+
 @cl-btn-primary: @cl-primary;
+@cl-btn-primary-border-top: lighten(@cl-primary, 5%);
+@cl-btn-primary-border-bottom: darken(@cl-primary, 5%);
 @cl-btn-primary-hover: darken(@cl-btn-primary, 5%);
 @cl-btn-primary-active: darken(@cl-btn-primary, 10%);
 @cl-btn-primary-disabled: lighten(@cl-btn-primary, 15%);
@@ -12,30 +18,58 @@
 @cl-btn-success-disabled: lighten(@cl-btn-success, 15%);
 
 @cl-btn-danger: @cl-danger;
-@cl-btn-danger-hover: darken(@cl-btn-danger, 5%);
-@cl-btn-danger-active: darken(@cl-btn-danger, 10%);
-@cl-btn-danger-disabled: lighten(@cl-btn-danger, 15%);
+@cl-btn-danger-hover: darken(@cl-btn-danger, 3%);
+@cl-btn-danger-active: darken(@cl-btn-danger, 7%);
+@cl-btn-danger-disabled: lighten(@cl-btn-danger, 10%);
 
-button {
-  background: @cl-btn-primary;
-  padding: 6px 10px;
-  font-size: 16px;
-  color: #fff;
+button, input[type=button], input[type=submit] {
+  padding: .3em .6em .4em;
+  font-size: 100%;
   font-weight: 400;
-  border: none;
   cursor: pointer;
+  outline: none;
+  color: @cl-main;
+  background: none;
   border-radius: 2px;
+  border: 1px solid @cl-separator;
 
-  &:hover {
-    background-color: @cl-btn-primary-hover;
+  &+& {
+    margin-left: @mg-md;
   }
 
-  &:focus, &:active {
-    background-color: @cl-btn-primary-active;
+  &[disabled] { cursor: auto }
+  &:hover { box-shadow: inset 0 0 1em @cl-btn-shadow }
+  &:active { background-color: @cl-btn-active; box-shadow: inset 0 0 1em @cl-btn-shadow }
+
+  &.xs { font-size: 70% }
+  &.sm { font-size: 85% }
+  &.lg { font-size: 120% }
+  &.xl { font-size: 150% }
+
+  &.primary {
+    color: @cl-white;
+    background: @cl-btn-primary;
+    border: none;
+    &:hover { background-color: @cl-btn-primary-hover }
+    &:active { background-color: @cl-btn-primary-active }
+    &[disabled] { background-color: @cl-btn-primary-disabled }
   }
 
-  &[disabled] {
-    background-color: @cl-btn-primary-disabled;
-    cursor: auto;
+  &.success {
+    color: @cl-white;
+    border: none;
+    background: @cl-btn-success;
+    &:hover { background-color: @cl-btn-success-hover }
+    &:active { background-color: @cl-btn-success-active }
+    &[disabled] { background-color: @cl-btn-success-disabled }
+  }
+
+  &.danger {
+    color: @cl-white;
+    border: none;
+    background: @cl-btn-danger;
+    &:hover { background-color: @cl-btn-danger-hover }
+    &:active { background-color: @cl-btn-danger-active }
+    &[disabled] { background-color: @cl-btn-danger-disabled }
   }
 }

@@ -1,14 +1,18 @@
 @import "./colors.less";
 @import "./shadows.less";
+@import "./margins.less";
+
+@font-sz: 22px;
+@font-wt: 400;
 
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
 body {
-  font-weight: 400;
+  font-weight: @font-wt;
   font-family: "Merryweather", "Helvetica", sans-serif;
-  font-size: 14px;
+  font-size: @font-sz;
   background-color: @cl-bg;
   margin: 0;
   padding: 0;
@@ -18,19 +22,28 @@ body {
 a {
   text-decoration: none;
   color: @cl-link;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1,h2,h3,h4,h5 {
+  font-weight: 400;
+}
+
+.bg {
+  filter: blur(3px);
+  position: fixed;
+  font-size: 120%;
+}
+.code {
+  font-family: monospace;
+  font-size: 85%;
 }
 
 .wrapper {
   max-width: 900px;
   margin: 0 auto;
-  padding: 90px 30px 30px;
-}
-
-.anim-spin {
-  animation: SPIN 1s infinite linear;
-}
-
-@keyframes SPIN {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  position: relative;
+  padding: @pd-xl @pd-md @pd-lg;
 }

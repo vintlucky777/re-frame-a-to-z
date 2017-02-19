@@ -6,3 +6,8 @@
  :name
  (fn [db]
    (:name db)))
+
+(rf/reg-sub
+ :code
+ (fn [db]
+   (:code db)))

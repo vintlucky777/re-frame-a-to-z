@@ -18,6 +18,6 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export init []
-  (re-frame/dispatch-sync [:initialize-db])
+  (re-frame/dispatch-sync [:init-db])
   (dev-setup)
   (mount-root))
