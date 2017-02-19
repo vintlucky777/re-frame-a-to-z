@@ -1,26 +1,17 @@
-# re-frame-a-to-z
+# re-frame A to Z
 
-A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
+Here lies the interactive slides my speech at Moscow Clojure(Script) Meetup 2/25/2017.
 
-## Development Mode
+This presentation gives a general understanding of what [re-frame](https://github.com/Day8/re-frame) is about, explains it's core concepts, usage experience and some underwater stones (aka daily pain-points).
 
-### Run application:
+## Run presentation:
 
 ```
-lein clean
-lein figwheel dev
+lein figwheel
 ```
-
-Figwheel will automatically push cljs changes to the browser.
 
 Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
 
 ## Production Build
 
-
-To compile clojurescript to javascript:
-
-```
-lein clean
-lein cljsbuild once min
-```
+_wait, what? seriously?! ;)_
