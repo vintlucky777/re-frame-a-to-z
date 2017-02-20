@@ -2,4 +2,5 @@
 
 (def default-db
   {:name "re-frame A to Z"
-   :code ""})
+   :code ""
+   :slide 0})

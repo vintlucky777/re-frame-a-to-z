@@ -8,11 +8,21 @@
     db/default-db))
 
 (rf/reg-event-db
-  :name
+  :set-name
   (fn [db [_ name]]
     (assoc db :name name)))
 
 (rf/reg-event-db
-  :code
+  :set-code
   (fn [db [_ code]]
     (assoc db :code code)))
+
+(rf/reg-event-db
+  :next-slide
+  (fn [db [_ code]]
+    (->> db :slide (+ 1) (assoc db :slide))))
+
+(rf/reg-event-db
+  :prev-slide
+  (fn [db [_ code]]
+    (->> db :slide (- 1) (max 0) (assoc db :slide))))

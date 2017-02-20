@@ -11,3 +11,8 @@
  :code
  (fn [db]
    (:code db)))
+
+(rf/reg-sub
+ :slide
+ (fn [db]
+   (:slide db)))
