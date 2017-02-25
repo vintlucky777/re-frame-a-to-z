@@ -3,7 +3,8 @@
                  [org.clojure/clojurescript "1.9.229"]
                  [reagent "0.6.0"]
                  [re-frame "0.9.1"]
-                 [reanimated "0.5.0"]]
+                 [reanimated "0.5.0"]
+                 [jarohen/chord "0.8.0"]]
 
   :plugins [[lein-cooper "1.2.2"]
             [lein-cljsbuild "1.1.4"]

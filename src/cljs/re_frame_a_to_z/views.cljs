@@ -1,6 +1,7 @@
 (ns re-frame-a-to-z.views
     (:require [re-frame.core :as rf]
-              [re-frame-a-to-z.slides :refer [slides]]))
+              [re-frame-a-to-z.slides :refer [slides]]
+              [clojure.string :as str]))
 
 (defn get-slide [slide-num]
   (let [slide (get slides slide-num)]
@@ -14,9 +15,10 @@
     (.log js/console emojis)
     [:div.emojis-block
       (into [:div.emojis]
-        (map #(do [:div.emoji
-                    [:div.img (:emoji %)]
-                    [:div.author (:name %)]])
+        (map #(do (js/console.log %)
+                  [:div.emoji-cnt
+                   [(keyword (str "div.emoji" ".emoji-" (str/replace (:emoji %) ":" "")))]
+                   [:div.author (:user_name %)]])
           emojis))]))
 
 (defn main-panel []

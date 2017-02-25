@@ -118,11 +118,48 @@
       [:img {:src "/img/6dominoes.png" :width 240}]
       [:p "looped event-data-view flow"]]])
 
-(defn slide-re-frame-tools []
+(defn slide-re-frame-tools-0 []
   [:div.slide.sl-rf-tools
     [:div
       [:h2 "Daily tools"]
-      [:code "(rf/dispatch [:dat-ship])"]]])
+      [:hr]
+      [:div.code
+        [:pre (str/join "\n" ["(def default-db"
+                              "  {:name \"re-frame A to Z\""
+                              "   :slide 0"
+                              "   :emojis []})"])]]]])
+
+(defn slide-re-frame-tools-1 []
+  [:div.slide.sl-rf-tools
+    [:div
+      [:h2 "Daily tools"]
+      [:hr]
+      [:code "(rf/rev-event-db [ev-name fn-new-db])"]
+      [:div.code
+        [:pre (str/join "\n" ["(rf/reg-event-db"
+                              "  :set-name"
+                              "  (fn [db [_ name]]"
+                              "    (assoc db :name name)))]])"])]]]])
+
+(defn slide-re-frame-tools-2 []
+  [:div.slide.sl-rf-tools
+    [:div
+      [:h2 "Daily tools"]
+      [:hr]
+      [:code "(rf/dispatch [:some-event & args])"]]])
+
+(defn slide-re-frame-tools-3 []
+  [:div.slide.sl-rf-tools
+    [:div
+      [:h2 "Daily tools"]
+      [:hr]
+      [:div [:code "(rf/subscribe :some-event)"]]
+      [:div.code
+        [:pre (str/join "\n" ["(defn element []"
+                               "  (let [store-val (rf/subscribe :some-event)]"
+                               "    (fn []"
+                               "      [:div (str \"value is \" @store-val)])))"])]]]])
+
 
 (defn slide-re-frame-patterns []
   [:div.slide.sl-rf-tools
@@ -134,6 +171,7 @@
 
 (defn slide-frontend-hell [hell-step]
   (let [name (rf/subscribe [:name])
+        code (rf/subscribe [:code])
         code (rf/subscribe [:code])]
     (fn [hell-step]
       [:div.card.frontend-hell
@@ -183,10 +221,53 @@
             [:div.decor-5]
             [:div.decor-wut]])])))
 
+(defn demos-title []
+  [:div.slide
+    [:h1 "Demo time!"]])
+
+(defn demos-app []
+  [:div.slide
+    [:h2 "Simple SPA"]
+    [:hr]
+    [:div.code {:style {:fontSize "200%"}} "RTFS!'"]
+    [:hr]
+    [:p [:small "' read the ******* sources"]]])
+
+(defn demos-time-machine []
+  [:div.slide
+    [:h2 "Time machine"]
+    [:hr]
+    [:div.code
+      [:pre
+        (str/join "\n" ["(def db"
+                        "  {..."
+                        "    :log []"
+                        "    :log-step nil})"
+                        ""
+                        ""
+                        "(rf/reg-event-db"
+                        "  :set-name"
+                        "  (fn [db]"
+                        "    (last (:log db))))"
+                        ""
+                        ""
+                        "(rf/dispatch [:rollback])"])]]])
+
+(defn demos-server-events []
+  [:div.slide
+    [:h2 "Server events"]
+    [:hr]
+    [:p [:a {:href "http://clojure.tv"} "clojure.tv"]]])
+
+(defn end-slide []
+  [:div.slide.end-slide
+    [:img {:src "/img/end_poster.jpg"}]
+    [:h1 "Thank you!"]])
 
 (def slides
   [slide-0
    slide-about-me
+   #(do [:div.slide [:h1 "Intro"]])
    slide-frontend-hell
    #(do [slide-frontend-hell 1])
   ;  #(do [slide-frontend-hell 2])
@@ -200,5 +281,13 @@
    slide-re-frame-def-3
    slide-re-frame-concept
    slide-re-frame-diagram
-   slide-re-frame-tools
-   slide-re-frame-patterns])
+   slide-re-frame-tools-0
+   slide-re-frame-tools-1
+   slide-re-frame-tools-2
+   slide-re-frame-tools-3
+   slide-re-frame-patterns
+   demos-title
+   demos-app
+   demos-time-machine
+   demos-server-events
+   end-slide])

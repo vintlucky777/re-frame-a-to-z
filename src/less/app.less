@@ -87,7 +87,7 @@ h1,h2,h3,h4,h5 {
       // border-bottom-left-radius: .5em;
       animation-name: PHOTO_ROTATE;
       animation-duration: 10s;
-      animation-delay: 20s;
+      animation-delay: 10s;
       animation-timing-function: cubic-bezier(.64,0,.65,1);
       animation-iteration-count: infinite;
     }
@@ -101,6 +101,24 @@ h1,h2,h3,h4,h5 {
     text-align: center;
     img {
       width: 20em;
+    }
+  }
+
+  &.end-slide {
+    text-shadow: 0 0 5px #fff,
+                 0 0 5px #fff,
+                 0 0 5px #fff,
+                 0 0 5px #fff;
+
+    img {
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      z-index: -10;
+      opacity: .1;
+    }
+
+    h1 {
+      position: relative;
     }
   }
 }
@@ -140,7 +158,7 @@ h1,h2,h3,h4,h5 {
 
 .frontend-hell {
   [class*="decor-"] {
-    position: absolute;
+    position: fixed;
     width: 4em;
     height: 4em;
     top: 0;
@@ -161,7 +179,6 @@ h1,h2,h3,h4,h5 {
     background-image: url('/img/decor/rainbow.png');
     width: 64em;
     height: 32em;
-    position: fixed;
     left: -30vmin;
     top: -30vmin;
     animation-name: JUMP_IN_RAINBOW;
@@ -171,15 +188,14 @@ h1,h2,h3,h4,h5 {
   .decor-3 {
     background-image: url('/img/decor/scream.png');
     animation-name: JUMP_IN_RIGHT;
-    position: absolute;
     left: -5em;
     top: 20em;
   }
   .decor-4 {
     background-image: url('/img/decor/unicorn.png');
     animation-name: JUMP_IN_LEFT;
-    left: 80vw;
-    top: 70vh;
+    left: 90vw;
+    top: 50vh;
     animation-delay: .1s;
   }
   .decor-5 {
@@ -190,7 +206,6 @@ h1,h2,h3,h4,h5 {
     animation-delay: .1s;
   }
   .decor-wut {
-    position: fixed;
     top: 80%;
     left: 70%;
     background-image: url('/img/decor/thinking_face.png');
@@ -223,20 +238,20 @@ h1,h2,h3,h4,h5 {
   flex-direction: column;
   justify-content: flex-end;
 
-  .emoji {
+  .emoji-cnt {
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    margin-bottom: 1em;
-    margin-top: 1em;
+    margin-bottom: .3em;
+    margin-top: .3em;
 
     .author {
       font-weight: 300;
       font-size: 70%;
     }
-    .img {
-      margin-bottom: .5em;
+    .emoji {
+      margin-bottom: .2em;
     }
   }
 }
