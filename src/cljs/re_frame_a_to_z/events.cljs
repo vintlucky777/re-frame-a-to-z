@@ -19,10 +19,21 @@
 
 (rf/reg-event-db
   :next-slide
-  (fn [db [_ code]]
-    (->> db :slide (+ 1) (assoc db :slide))))
+  (fn [db]
+    (let [slide (:slide db)
+          next-slide (+ slide 1)]
+      (assoc db :slide next-slide))))
 
 (rf/reg-event-db
   :prev-slide
-  (fn [db [_ code]]
-    (->> db :slide (- 1) (max 0) (assoc db :slide))))
+  (fn [db]
+    (let [slide (:slide db)
+          prev-slide (max 0 (- slide 1))]
+      (assoc db :slide prev-slide))))
+
+(rf/reg-event-db
+  :new-emoji
+  (fn [db [_ emoji]]
+    (let [emojis (:emojis db)
+          new-emojis (->> (concat emojis emoji) distinct (into []))]
+      (assoc db :emojis new-emojis))))

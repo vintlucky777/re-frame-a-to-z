@@ -16,3 +16,8 @@
  :slide
  (fn [db]
    (:slide db)))
+
+(rf/reg-sub
+ :emojis
+ (fn [db]
+   (:emojis db)))

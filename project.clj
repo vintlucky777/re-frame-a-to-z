@@ -2,7 +2,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.229"]
                  [reagent "0.6.0"]
-                 [re-frame "0.9.1"]]
+                 [re-frame "0.9.1"]
+                 [reanimated "0.5.0"]]
 
   :plugins [[lein-cooper "1.2.2"]
             [lein-cljsbuild "1.1.4"]
@@ -14,8 +15,7 @@
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
-  :cooper {"less" ["lein" "less" "auto"]
-           "web"  ["lein" "figwheel" "dev"]}
+  :cooper {"less" ["lein" "less" "auto"]}
 
   :less {:source-paths ["src/less/"]
          :target-path "resources/public/styles/"}
