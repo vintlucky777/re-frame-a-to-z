@@ -1,20 +1,6 @@
 (ns re-frame-a-to-z.events
     (:require [re-frame.core :as rf]
-              [re-frame-a-to-z.db :as db]
-              [chord.client :refer [ws-ch]]
-              [cljs.core.async :refer [<! >! put! close!]])
-    (:require-macros [cljs.core.async.macros :refer [go]]))
-
-(defn get-server-message []
-  (go
-    (let [{:keys [ws-channel]} (<! (ws-ch "ws://www.clojure.tv/" {:format :json-kw}))
-          evt (<! ws-channel)
-          evt-map (into {} (:message evt))]
-      (js/console.log "Got message from server:" evt evt-map)
-      (rf/dispatch [:new-emoji evt-map])
-      (get-server-message))))
-
-(get-server-message)
+              [re-frame-a-to-z.db :as db]))
 
 (rf/reg-event-db
   :init-db
@@ -51,5 +37,4 @@
     (let [prev-emojis (:emojis db)
           emoji (into {} evt)
           new-emojis (->> (concat prev-emojis [emoji]) (take-last 10) (into []))]
-      (js/console.log emoji new-emojis)
       (assoc db :emojis new-emojis))))

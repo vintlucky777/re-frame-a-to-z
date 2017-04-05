@@ -4,7 +4,8 @@
               [re-frame-a-to-z.events]
               [re-frame-a-to-z.subs]
               [re-frame-a-to-z.views :as views]
-              [re-frame-a-to-z.config :as config]))
+              [re-frame-a-to-z.config :as config]
+              [re-frame-a-to-z.api :as api]))
 
 
 (defn dev-setup []
@@ -20,4 +21,5 @@
 (defn ^:export init []
   (re-frame/dispatch-sync [:init-db])
   (dev-setup)
+  (api/init-server-listener)
   (mount-root))
