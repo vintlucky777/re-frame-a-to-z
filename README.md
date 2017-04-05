@@ -13,6 +13,12 @@ This command will run `lein less auto` and `lein figwheel dev` in parallel.
 
 Wait a bit, then browse to [http://localhost:3000](http://localhost:3000).
 
+## Live streaming demo (live emojis)
+
+There is a section of this talk that refers to http://clojure.tv service, which is essentially a
+simple emoji proxy with WebSocket-based streaming to attached clients.
+You can find it's source code here: https://github.com/vintlucky777/emoji-likes
+
 ## Production Build
 
 _wait, what? seriously?! ;)_
